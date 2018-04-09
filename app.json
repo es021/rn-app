@@ -1,0 +1,14 @@
+{
+  "expo": {
+    "name": "RnApp",
+    "sdkVersion": "26.0.0",
+    "version": "1.0.0",
+    "slug": "rn-app",
+    "ios": {
+      "bundleIdentifier": "com.rnapp.rnapp"
+    },
+    "android": {
+      "package": "com.rnapp.rnapp"
+    }
+  }
+}
