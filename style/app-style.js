@@ -1,4 +1,3 @@
-
 import { StyleSheet } from 'react-native';
 
 export default AppStyle = StyleSheet.create({
@@ -21,5 +20,15 @@ export default AppStyle = StyleSheet.create({
     h3: {
         fontSize: 10,
         fontWeight: 'bold'
+    },
+    textWhite: {
+        color: "white"
     }
 });
+
+export const Color = {
+    blue: "#2162bc",
+    green: "#1daf31",
+    red: "#ba2121",
+    lightGray: "#d6d7da"
+}

@@ -3,6 +3,8 @@ import { Text, View, DrawerLayoutAndroid } from 'react-native';
 import { TabNavigator } from 'react-navigation'; // Version can be specified in package.json
 import { TabApp } from './config/router';
 
+console.disableYellowBox = true;
+
 export default class App extends React.Component {
   render() {
     var navigationView = <View style={{ flex: 1, backgroundColor: '#fff' }}>
