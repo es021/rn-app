@@ -1,5 +1,15 @@
 import { StyleSheet } from 'react-native';
 
+
+export const Color = {
+    none : "rgba(0,0,0,0)",
+    blue: "#2594ED",
+    green: "#1daf31",
+    red: "#ba2121",
+    lightGray: "#d6d7da"
+}
+
+ 
 export default AppStyle = StyleSheet.create({
     container: {
         flex: 1,
@@ -8,9 +18,10 @@ export default AppStyle = StyleSheet.create({
         justifyContent: 'center',
     },
     h1: {
-        fontSize: 20,
+        fontSize: 30,
         fontWeight: 'bold',
-        marginTop: 5
+        marginTop: 10,
+        color: Color.blue
     },
     h2: {
         fontSize: 15,
@@ -25,10 +36,3 @@ export default AppStyle = StyleSheet.create({
         color: "white"
     }
 });
-
-export const Color = {
-    blue: "#2162bc",
-    green: "#1daf31",
-    red: "#ba2121",
-    lightGray: "#d6d7da"
-}

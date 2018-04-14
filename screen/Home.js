@@ -7,11 +7,13 @@ import { FullLoader } from '../component/loader';
 import { BasicLI } from '../component/list';
 import RefreshableList from '../component/refreshable-list';
 
+import CalendarView from '../component/calendar';
+
 export default class Home extends React.Component {
     render() {
         return (
             <FlexView>
-                <Text>Home</Text>
+                <CalendarView></CalendarView>
             </FlexView>
         );
     }

@@ -10,7 +10,7 @@ export const getNavigationParams = (obj) => {
 }
 
 export const TabApp = TabNavigator({
-    Log: { screen: Log },
     Home: { screen: Home },
+    Log: { screen: Log },
     About: { screen: About }
 });

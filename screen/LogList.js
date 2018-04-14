@@ -7,39 +7,7 @@ import RefreshableList from '../component/refreshable-list';
 import PropTypes from 'prop-types';
 import { getAxiosGraphQLQuery } from '../helper/api-helper';
 import { Icon } from 'react-native-elements'
-
-
-const createStatusIcon = (status, size = 40) => {
-    let style = StyleSheet.create({
-        status: {
-            display: "flex",
-            alignItems: 'center',
-            justifyContent: 'center',
-            borderRadius: 100,
-            width: size,
-            height: size
-        },
-        statusText: {
-            color: "white",
-            fontSize: size - 10
-        },
-        backRed: {
-            backgroundColor: Color.red,
-        },
-        backGreen: {
-            backgroundColor: Color.green,
-        }
-    });
-
-    var backStyle = status ? style.backGreen : style.backRed;
-    var iconName = status ? "check" : "close";
-
-    return <View style={[style.status, backStyle]}>
-        <Icon style={style.statusText}
-            name={iconName} color="white" />
-    </View>;
-}
-
+import { createStatusIcon } from '../component/helper';
 
 export default class LogList extends React.Component {
     constructor(props) {
