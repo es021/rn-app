@@ -7,7 +7,7 @@ import RefreshableList from '../component/refreshable-list';
 import PropTypes from 'prop-types';
 import { getAxiosGraphQLQuery } from '../helper/api-helper';
 import { Icon } from 'react-native-elements'
-import { createStatusIcon } from '../component/helper';
+import { createStatusIcon, createActivityDetail } from '../component/helper';
 
 export default class LogList extends React.Component {
     constructor(props) {
@@ -20,7 +20,7 @@ export default class LogList extends React.Component {
     loadData(page) {
         var q = `query{ logs(page:${page}, offset:10) { 
             ID status date 
-            activity {ID name} 
+            activity {name icon} 
             } }`;
 
         return getAxiosGraphQLQuery(q).then((res) => {
@@ -66,6 +66,7 @@ const style = StyleSheet.create({
         alignItems: 'center',
         padding: 7,
         paddingVertical: 10,
+        paddingHorizontal: 20,
         borderWidth: 0.5,
         borderColor: Color.lightGray
     },
@@ -78,8 +79,8 @@ class LogLi extends React.Component {
     render() {
         var d = this.props.data;
         var v = <View style={style.view}>
-            {createStatusIcon(d.status)}
-            <Text style={[AppStyle.h1, style.text]}>{d.date}</Text>
+            {createActivityDetail(d.activity, d)}
+            {createStatusIcon(d.status, 35)}
         </View>
 
         return <BasicLI onPress={this.props.onPress}

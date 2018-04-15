@@ -1,5 +1,5 @@
 
-class Calendar {
+class CalendarUtil {
 
     constructor() {
         this.DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -32,9 +32,44 @@ class Calendar {
     }
 
 
+    getDateStrPretty(date, withDay = false) {
+        if (typeof date === "string") {
+            date = this.getDateFromStr(date);
+        }
+
+        var y = date.getFullYear();
+        var m = this.MONTHS[date.getMonth()];
+        var d = date.getDate();
+
+        var day = this.DAYS[date.getDay()];
+
+        var r = `${m} ${d}, ${y}`;
+        if (withDay) {
+            r += ` (${day})`;
+        }
+        return r;
+    }
+
+
     getDayName(date) {
         return this.DAYS[date.getDay()];
     }
+
+    getCurrentDate() {
+        var now = new Date();
+        return now.getDate();
+    }
+
+    getCurrentMonth() {
+        var now = new Date();
+        return now.getMonth() + 1;
+    }
+
+    getCurrentYear() {
+        var now = new Date();
+        return now.getFullYear();
+    }
+
 
     getMonthArr(month = null, year = null) {
         if (month == null || year == null) {
@@ -121,7 +156,7 @@ class Calendar {
 
 }
 
-export default new Calendar();
+export default new CalendarUtil();
 
 //var calendar = new Calendar();
 

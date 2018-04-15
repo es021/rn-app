@@ -2,14 +2,14 @@ import { StyleSheet } from 'react-native';
 
 
 export const Color = {
-    none : "rgba(0,0,0,0)",
+    none: "rgba(0,0,0,0)",
     blue: "#2594ED",
     green: "#1daf31",
     red: "#ba2121",
     lightGray: "#d6d7da"
 }
 
- 
+
 export default AppStyle = StyleSheet.create({
     container: {
         flex: 1,
@@ -21,10 +21,11 @@ export default AppStyle = StyleSheet.create({
         fontSize: 30,
         fontWeight: 'bold',
         marginTop: 10,
-        color: Color.blue
+        color: Color.blue,
+        textAlign: "center"
     },
     h2: {
-        fontSize: 15,
+        fontSize: 20,
         fontWeight: 'bold',
         marginTop: 5
     },
@@ -34,5 +35,10 @@ export default AppStyle = StyleSheet.create({
     },
     textWhite: {
         color: "white"
+    },
+    horizontalFlex: {
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "center"
     }
-});
+}); 

@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, View, StyleSheet, FlatList, RefreshControl, ToastAndroid } from 'react-native';
 import AppStyle from '../style/app-style';
 import { FullLoader } from './loader';
+import PropTypes from 'prop-types';
 
 // renderItem(i, d), loadData(page)
 export default class RefreshableList extends React.Component {
@@ -17,6 +18,8 @@ export default class RefreshableList extends React.Component {
             nextPage: 1,
             latestDataLength: 0
         }
+
+        this.onEndReachedThreshold = !this.props.noAppend ? 0.5 : -1;
     }
 
     componentDidMount() {
@@ -64,6 +67,7 @@ export default class RefreshableList extends React.Component {
         if (this.state.loading) {
             v = <FullLoader />;
         } else {
+
             v = <FlatList
                 keyExtractor={(d) => this.props.keyExtractor(d)}
                 refreshControl={
@@ -73,11 +77,23 @@ export default class RefreshableList extends React.Component {
                 }
                 data={this.state.data}
                 renderItem={({ i, item }) => this.props.renderItem(i, item)}
-                onEndReachedThreshold={0.5}
-                onEndReached={({ distanceFromEnd }) => { this.onEndReached(distanceFromEnd); }}
+                onEndReachedThreshold={this.onEndReachedThreshold}
+                onEndReached={({ distanceFromEnd }) => {
+                    if (!this.props.noAppend) {
+                        this.onEndReached(distanceFromEnd);
+                    }
+                }}
             />;
         }
- 
+
         return v;
     }
-} 
+}
+
+RefreshableList.propTypes = {
+    noAppend: PropTypes.bool
+}
+
+RefreshableList.defaultProps = {
+    noAppend: false
+}
